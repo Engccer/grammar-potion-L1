@@ -20,7 +20,7 @@ const GRAMMAR_DATA = {
             { en: "I <u>am</u> smart.", ko: "나는 똑똑합니다.", highlight: "am" },
             { en: "You <u>are</u> very kind.", ko: "당신은 매우 친절합니다.", highlight: "are" },
             { en: "Jane <u>is</u> my friend.", ko: "Jane은 나의 친구입니다.", highlight: "is" },
-            { en: "They're <u>in</u> the classroom.", ko: "그들은 교실에 있습니다.", highlight: "in" }
+            { en: "They<u>'re</u> in the classroom.", ko: "그들은 교실에 있습니다.", highlight: "'re" }
           ],
           audioKey: "recipe_be_1"
         },
