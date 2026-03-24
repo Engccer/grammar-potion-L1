@@ -450,7 +450,7 @@ const GRAMMAR_DATA = {
           id: 8,
           type: "multiple_choice",
           question: "밑줄 친 ①~⑤ 중 어법상 어색한 것은?",
-          context: "After school, my friends and I <u>①go</u> to the convenience store. We <u>②have</u> some snacks and <u>③talk</u> about our day. We <u>④are not stay</u> long and <u>⑤walk</u> home together.",
+          context: "After school, my friends and I <u>①go</u> to the convenience store. We <u>②have</u> some snacks and <u>③talk</u> about our day. We <u>④are</u> not stay long and <u>⑤walk</u> home together.",
           options: [
             "①",
             "②",
