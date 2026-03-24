@@ -17,8 +17,8 @@
   --red: #e74c3c;
   --parchment: #d4a574;
   --parchment-dark: #8b6914;
-  --text: #e8e0d0;
-  --text-dim: #9a8e7a;
+  --text: #f5f0e8;
+  --text-dim: #c4b89e;
   --potion-be: #7b68ee;
   --potion-action: #ff6347;
 }
@@ -28,7 +28,8 @@ body {
   background: linear-gradient(135deg, var(--bg-deep), var(--bg-dark));
   color: var(--text);
   min-height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   position: relative;
 }
 
@@ -45,6 +46,11 @@ body {
   max-width: 800px; margin: 0 auto; padding: 20px;
   min-height: 100vh;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+/* Quiz screen needs top-align so all 5 options are visible */
+#quiz-screen.active ~ #game-container,
+#game-container:has(#quiz-screen.active) {
+  justify-content: flex-start; padding-top: 10px;
 }
 
 /* ===== SCREENS ===== */
@@ -85,7 +91,7 @@ body {
   box-shadow: 0 0 25px rgba(123, 104, 238, 0.6);
   outline: none;
 }
-.key-hint { font-size: 0.85rem; color: var(--text-dim); margin-top: 1em; }
+.key-hint { font-size: 0.85rem; color: #b8ad96; margin-top: 1em; }
 
 /* ===== INTRO SCREEN ===== */
 #intro-screen .wizard-speech {
@@ -126,7 +132,7 @@ body {
 .chapter-card.locked { opacity: 0.4; pointer-events: none; border-color: #555; }
 .chapter-card .ch-icon { font-size: 2.5rem; margin-bottom: 0.5em; }
 .chapter-card .ch-name { font-family: 'Cinzel Decorative', cursive; font-size: 1.2rem; color: var(--gold); }
-.chapter-card .ch-name-ko { font-size: 0.95rem; color: var(--text-dim); margin-top: 0.3em; }
+.chapter-card .ch-name-ko { font-size: 0.95rem; color: #d4c8ae; margin-top: 0.3em; }
 
 /* ===== RECIPE (LEARNING) SCREEN ===== */
 .scroll-container {
@@ -240,7 +246,7 @@ body {
 }
 
 .progress-text {
-  font-size: 0.9rem; color: var(--text-dim); margin-bottom: 15px;
+  font-size: 0.9rem; color: #c4b89e; margin-bottom: 15px;
 }
 .score-display {
   font-size: 0.9rem; color: var(--gold); margin-bottom: 5px;
@@ -258,11 +264,11 @@ body {
   width: 100%;
 }
 .question-label { font-size: 0.85rem; color: var(--gold); margin-bottom: 8px; }
-.question-text { font-size: 1.05rem; line-height: 1.7; margin-bottom: 5px; white-space: pre-line; }
+.question-text { font-size: 1.05rem; line-height: 1.7; margin-bottom: 5px; white-space: pre-line; color: #ffffff; }
 .question-text u { color: var(--gold); text-decoration-color: var(--gold); }
 .context-text {
-  font-size: 0.95rem; color: var(--text-dim);
-  background: rgba(255,255,255,0.05); padding: 10px 14px;
+  font-size: 0.95rem; color: #e0d8c8;
+  background: rgba(255,255,255,0.08); padding: 10px 14px;
   border-radius: 8px; margin: 10px 0; white-space: pre-line;
   line-height: 1.7;
 }
@@ -271,13 +277,14 @@ body {
 /* Options */
 .options-list { list-style: none; width: 100%; }
 .option-item {
-  background: rgba(123, 104, 238, 0.1);
-  border: 2px solid rgba(123, 104, 238, 0.3);
+  background: rgba(123, 104, 238, 0.15);
+  border: 2px solid rgba(123, 104, 238, 0.4);
   border-radius: 10px; padding: 12px 16px;
   margin-bottom: 8px; cursor: pointer;
   transition: all 0.2s; font-size: 0.95rem;
   display: flex; align-items: center; gap: 10px;
   line-height: 1.5;
+  color: #ffffff;
 }
 .option-item:hover, .option-item:focus {
   border-color: var(--purple); background: rgba(123, 104, 238, 0.2);
@@ -335,6 +342,7 @@ body {
   padding: 8px 16px; border-radius: 8px;
   background: rgba(123, 104, 238, 0.2);
   border: 2px solid var(--purple);
+  color: #ffffff;
   cursor: pointer; transition: all 0.2s;
   font-size: 0.95rem; font-weight: 500;
 }
@@ -363,7 +371,7 @@ body {
   background: rgba(231, 76, 60, 0.15);
   border: 2px solid var(--red); color: var(--red);
 }
-.explanation-text { font-size: 0.9rem; color: var(--text); margin-top: 8px; line-height: 1.6; }
+.explanation-text { font-size: 0.9rem; color: #f0ebe0; margin-top: 8px; line-height: 1.6; }
 
 /* ===== END SCREEN ===== */
 .end-title {
@@ -407,6 +415,22 @@ body {
   position: fixed; pointer-events: none; z-index: 100;
   border-radius: 50%;
 }
+
+/* ===== BG SOUND TOGGLE ===== */
+.bg-sound-btn {
+  position: fixed; top: 15px; right: 15px; z-index: 50;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(26, 10, 46, 0.8);
+  border: 2px solid var(--purple);
+  color: var(--text); font-size: 1.3rem;
+  cursor: pointer; transition: all 0.3s;
+  display: flex; align-items: center; justify-content: center;
+}
+.bg-sound-btn:hover, .bg-sound-btn:focus {
+  border-color: var(--gold); background: rgba(123, 104, 238, 0.3);
+  outline: none;
+}
+.bg-sound-btn.muted { opacity: 0.5; }
 
 /* ===== SR ANNOUNCE ===== */
 #sr-announce {
@@ -499,6 +523,9 @@ body {
   </div>
 </div>
 
+<!-- BG Sound Toggle -->
+<button id="bg-sound-toggle" class="bg-sound-btn" aria-label="배경 효과음 끄기" title="배경 효과음 켜기/끄기">🔊</button>
+
 <div id="sr-announce" role="status" aria-live="assertive" aria-atomic="true"></div>
 
 <script src="grammar_data.js"></script>
@@ -540,11 +567,30 @@ const AudioMgr = {
   async startBgLoop() {
     if (this.bgLoop) return;
     this.bgLoop = await this.play('bubbling', typeof SFX_DATA !== 'undefined' ? SFX_DATA : {}, true);
+    if (this.bgLoop && this.bgMuted) this.bgLoop.gain.gain.value = 0;
   },
   stopBgLoop() {
     if (this.bgLoop) { try { this.bgLoop.source.stop(); } catch(e){} this.bgLoop = null; }
+  },
+  bgMuted: false,
+  toggleBgMute() {
+    this.bgMuted = !this.bgMuted;
+    const btn = document.getElementById('bg-sound-toggle');
+    if (this.bgMuted) {
+      if (this.bgLoop) this.bgLoop.gain.gain.value = 0;
+      btn.textContent = '🔇';
+      btn.classList.add('muted');
+      btn.setAttribute('aria-label', '배경 효과음 켜기');
+    } else {
+      if (this.bgLoop) this.bgLoop.gain.gain.value = 0.15;
+      btn.textContent = '🔊';
+      btn.classList.remove('muted');
+      btn.setAttribute('aria-label', '배경 효과음 끄기');
+    }
   }
 };
+
+document.getElementById('bg-sound-toggle').addEventListener('click', () => AudioMgr.toggleBgMute());
 
 // ===== GAME STATE =====
 const State = {
