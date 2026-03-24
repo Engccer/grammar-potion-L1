@@ -440,14 +440,52 @@ body {
 }
 
 /* ===== RESPONSIVE ===== */
+/* Prevent double-tap zoom on interactive elements */
+button, .option-item, .word-block, .chapter-card { touch-action: manipulation; }
+
 @media (max-width: 600px) {
   .game-title { font-size: 1.8rem; }
-  .scroll-container { padding: 20px; }
-  .question-card { padding: 18px; }
+  .game-subtitle { font-size: 0.95rem; }
+  #game-container { padding: 12px; }
+  .scroll-container { padding: 18px; max-height: 65vh; }
+  .recipe-header { font-size: 1.1rem; }
+  .recipe-content { font-size: 0.92rem; }
+  .example-box { padding: 10px 12px; }
+  .grammar-table { font-size: 0.85rem; }
+  .grammar-table th, .grammar-table td { padding: 6px 8px; }
+  .question-card { padding: 16px; }
+  .question-text { font-size: 0.95rem; }
+  .context-text { font-size: 0.88rem; padding: 8px 12px; }
   .chapter-cards { flex-direction: column; align-items: center; }
-  .chapter-card { width: 100%; max-width: 300px; }
+  .chapter-card { width: 100%; max-width: 300px; padding: 20px; }
   .cauldron-icon { font-size: 3.5rem; }
-  .option-item { font-size: 0.88rem; padding: 10px 12px; }
+  /* Ensure 48px minimum touch targets */
+  .option-item { font-size: 0.88rem; padding: 12px 14px; min-height: 48px; }
+  .word-block { padding: 10px 18px; min-height: 44px; font-size: 0.9rem; }
+  .btn { padding: 12px 24px; min-height: 48px; font-size: 0.95rem; }
+  .btn-start { padding: 14px 40px; font-size: 1.2rem; }
+  .bg-sound-btn { width: 40px; height: 40px; font-size: 1.1rem; top: 10px; right: 10px; }
+  /* Cauldron smaller on mobile */
+  .cauldron-visual { transform: scale(0.8); margin-bottom: 10px; }
+  .score-display { font-size: 0.85rem; }
+  .streak-display { font-size: 0.8rem; }
+  .progress-text { font-size: 0.8rem; margin-bottom: 10px; }
+  /* Recipe nav buttons */
+  .recipe-nav { gap: 10px; padding-top: 12px; }
+  .recipe-nav .btn { flex: 1; text-align: center; }
+  /* Word block blanks */
+  .wb-blank { min-width: 60px; }
+  .wb-prompt { font-size: 0.92rem; }
+  .wb-sentence { font-size: 0.95rem; }
+  .wb-sub-counter { font-size: 0.8rem; }
+  /* Result area */
+  .result-banner { padding: 12px 16px; font-size: 0.9rem; }
+  .explanation-text { font-size: 0.85rem; }
+  /* End screen */
+  .end-title { font-size: 1.5rem; }
+  .end-score { font-size: 1.2rem; }
+  .end-stats { font-size: 0.88rem; }
+  .end-wizard-msg { font-size: 0.95rem; }
 }
 </style>
 </head>
