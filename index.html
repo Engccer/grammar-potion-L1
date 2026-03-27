@@ -509,7 +509,8 @@ button, .option-item, .word-block, .chapter-card { touch-action: manipulation; }
       <div id="intro-text"></div>
       <span class="typewriter-cursor" id="intro-cursor"></span>
     </div>
-    <p class="key-hint" style="margin-top:1em">Space를 눌러 계속</p>
+    <button class="btn btn-gold" id="btn-intro-next" tabindex="0" style="margin-top:1em;padding:10px 30px;font-size:1rem;">계속 →</button>
+    <p class="key-hint" style="margin-top:0.5em">또는 Space를 눌러 계속</p>
   </div>
 
   <!-- CHAPTER SELECT SCREEN -->
@@ -744,7 +745,13 @@ function skipIntro() {
   document.getElementById('intro-cursor').style.display = 'none';
 }
 
-// Intro key handling is in global handler below
+document.getElementById('btn-intro-next').addEventListener('click', () => {
+  if (!introSkipped && introLineIndex < introLines.length) {
+    skipIntro();
+  } else {
+    showChapterSelect();
+  }
+});
 
 // ===== CHAPTER SELECT =====
 function showChapterSelect() {
