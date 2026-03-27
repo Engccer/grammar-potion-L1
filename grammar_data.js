@@ -16,19 +16,13 @@ const GRAMMAR_DATA = {
           title: "기본 개념",
           titleEn: "What is a Be Verb?",
           content: "be동사는 가장 기본적인 동사로 주어의 <em>상태</em>나 <em>존재</em>를 나타내며, <strong>'~이다'</strong>, <strong>'(~에) 있다'</strong>의 뜻을 가집니다.",
-          examples: [
-            { en: "I <u>am</u> smart.", ko: "나는 똑똑합니다.", highlight: "am" },
-            { en: "You <u>are</u> very kind.", ko: "당신은 매우 친절합니다.", highlight: "are" },
-            { en: "Jane <u>is</u> my friend.", ko: "Jane은 나의 친구입니다.", highlight: "is" },
-            { en: "They<u>'re</u> in the classroom.", ko: "그들은 교실에 있습니다.", highlight: "'re" }
-          ],
           audioKey: "recipe_be_1"
         },
         {
           step: 2,
           title: "be동사의 종류",
           titleEn: "Three Forms of Be",
-          content: "be동사는 <strong>am, are, is</strong>의 세 종류가 있으며, 주어의 인칭과 수에 따라 결정됩니다.",
+          content: "be동사는 <strong>am, are, is</strong>의 세 종류가 있으며, 주어의 인칭과 수에 따라 결정됩니다. 주어가 대명사인 경우 be동사를 줄여 <strong>축약형</strong>으로 쓸 수 있습니다.",
           table: {
             headers: ["주어", "be동사", "축약형"],
             rows: [
@@ -39,6 +33,10 @@ const GRAMMAR_DATA = {
             ]
           },
           examples: [
+            { en: "I <u>am</u> smart.", ko: "나는 똑똑합니다.", highlight: "am" },
+            { en: "You <u>are</u> very kind.", ko: "당신은 매우 친절합니다.", highlight: "are" },
+            { en: "Jane <u>is</u> my friend.", ko: "Jane은 나의 친구입니다.", highlight: "is" },
+            { en: "They<u>'re</u> in the classroom.", ko: "그들은 교실에 있습니다.", highlight: "'re" },
             { en: "I<u>'m</u> fourteen years old.", ko: "나는 열네 살입니다.", highlight: "'m" },
             { en: "You<u>'re</u> beautiful.", ko: "당신은 아름답습니다.", highlight: "'re" },
             { en: "She<u>'s</u> in the library.", ko: "그녀는 도서관에 있습니다.", highlight: "'s" }
