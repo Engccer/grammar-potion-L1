@@ -575,10 +575,15 @@ const AudioMgr = {
   ctx: null,
   cache: {},
   bgLoop: null,
+  _currentTTS: null,
+  _currentSFX: null,
   getCtx() {
     if (!this.ctx) this.ctx = new (window.AudioContext || window.webkitAudioContext)();
     if (this.ctx.state === 'suspended') this.ctx.resume();
     return this.ctx;
+  },
+  _stopNode(node) {
+    if (node) { try { node.source.stop(); } catch(e){} }
   },
   async play(key, dataObj, loop = false) {
     const src = dataObj?.[key];
@@ -600,8 +605,18 @@ const AudioMgr = {
       return { source, gain };
     } catch (e) { console.warn('Audio play failed:', key, e); return null; }
   },
-  async playSFX(key) { return this.play(key, typeof SFX_DATA !== 'undefined' ? SFX_DATA : {}); },
-  async playTTS(key) { return this.play(key, typeof AUDIO_DATA !== 'undefined' ? AUDIO_DATA : {}); },
+  async playSFX(key) {
+    this._stopNode(this._currentSFX);
+    const node = await this.play(key, typeof SFX_DATA !== 'undefined' ? SFX_DATA : {});
+    this._currentSFX = node;
+    return node;
+  },
+  async playTTS(key) {
+    this._stopNode(this._currentTTS);
+    const node = await this.play(key, typeof AUDIO_DATA !== 'undefined' ? AUDIO_DATA : {});
+    this._currentTTS = node;
+    return node;
+  },
   async startBgLoop() {
     if (this.bgLoop) return;
     this.bgLoop = await this.play('bubbling', typeof SFX_DATA !== 'undefined' ? SFX_DATA : {}, true);
