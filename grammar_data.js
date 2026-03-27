@@ -58,7 +58,9 @@ const GRAMMAR_DATA = {
           examples: [
             { en: "I <u>am not</u> tired.", ko: "나는 피곤하지 않습니다.", highlight: "am not" },
             { en: "Kevin <u>is not</u> a doctor.", ko: "Kevin은 의사가 아닙니다.", highlight: "is not" },
+            { en: "They <u>are not</u> friendly.", ko: "그들은 친절하지 않습니다.", highlight: "are not" },
             { en: "They <u>aren't</u> in the same class.", ko: "그들은 같은 반이 아닙니다.", highlight: "aren't" },
+            { en: "He <u>isn't</u> here now.", ko: "그는 지금 여기에 없습니다.", highlight: "isn't" },
             { en: "I<u>'m not</u> so busy.", ko: "나는 그리 바쁘지 않습니다.", highlight: "'m not" }
           ],
           audioKey: "recipe_be_3"
@@ -74,10 +76,13 @@ const GRAMMAR_DATA = {
             noAnswer: "No, 주어 + be동사 + not."
           },
           examples: [
-            { en: "<u>Is</u> Tom a scientist?", ko: "Tom은 과학자입니까?", highlight: "Is" },
-            { en: "Yes, he <u>is</u>. / No, he <u>isn't</u>.", ko: "네, 그래요. / 아니요, 그렇지 않아요.", highlight: "is" },
-            { en: "<u>Are</u> you good at basketball?", ko: "당신은 농구를 잘합니까?", highlight: "Are" },
-            { en: "Yes, I <u>am</u>. / No, I<u>'m not</u>.", ko: "네, 잘해요. / 아니요, 그렇지 않아요.", highlight: "am" }
+            { en: "<u>Am</u> I late?", ko: "제가 늦었습니까?", highlight: "Am" },
+            { en: "<u>Are</u> you good at math?", ko: "당신은 수학을 잘합니까?", highlight: "Are" },
+            { en: "<u>Is</u> it good for health?", ko: "그것은 건강에 좋습니까?", highlight: "Is" },
+            { en: "A: <u>Is</u> Tom a scientist?", ko: "Tom은 과학자입니까?", highlight: "Is" },
+            { en: "B: Yes, he <u>is</u>. / No, he <u>isn't</u>.", ko: "네, 그래요. / 아니요, 그렇지 않아요.", highlight: "is" },
+            { en: "A: <u>Are</u> you good at basketball?", ko: "당신은 농구를 잘합니까?", highlight: "Are" },
+            { en: "B: Yes, I <u>am</u>. / No, I<u>'m not</u>.", ko: "네, 잘해요. / 아니요, 그렇지 않아요.", highlight: "am" }
           ],
           audioKey: "recipe_be_4"
         }
@@ -274,8 +279,11 @@ const GRAMMAR_DATA = {
           },
           examples: [
             { en: "We all <u>breathe</u> and <u>eat</u>.", ko: "우리는 모두 숨을 쉬고 먹습니다.", highlight: "breathe" },
+            { en: "I <u>have</u> a brother.", ko: "나는 남자 형제가 한 명 있습니다.", highlight: "have" },
+            { en: "She <u>walks</u> to school.", ko: "그녀는 학교에 걸어갑니다.", highlight: "walks" },
             { en: "Lily <u>runs</u> very fast.", ko: "Lily는 매우 빠르게 달립니다.", highlight: "runs" },
-            { en: "She <u>walks</u> to school.", ko: "그녀는 학교에 걸어갑니다.", highlight: "walks" }
+            { en: "Minho <u>likes</u> flowers.", ko: "민호는 꽃을 좋아합니다.", highlight: "likes" },
+            { en: "She <u>wants</u> new shoes.", ko: "그녀는 새 신발을 원합니다.", highlight: "wants" }
           ],
           audioKey: "recipe_verb_2"
         },
@@ -308,9 +316,12 @@ const GRAMMAR_DATA = {
           },
           examples: [
             { en: "<u>Do</u> you like pizza?", ko: "당신은 피자를 좋아합니까?", highlight: "Do" },
-            { en: "Yes, I <u>do</u>. / No, I <u>don't</u>.", ko: "네, 그래요. / 아니요, 그렇지 않아요.", highlight: "do" },
+            { en: "<u>Do</u> they want this book?", ko: "그들은 이 책을 원합니까?", highlight: "Do" },
             { en: "<u>Does</u> Robin get up early?", ko: "Robin은 일찍 일어납니까?", highlight: "Does" },
-            { en: "Yes, she <u>does</u>. / No, she <u>doesn't</u>.", ko: "네, 그래요. / 아니요, 그렇지 않아요.", highlight: "does" }
+            { en: "A: <u>Do</u> you run every day?", ko: "당신은 매일 달립니까?", highlight: "Do" },
+            { en: "B: Yes, I <u>do</u>. / No, I <u>don't</u>.", ko: "네, 그래요. / 아니요, 그렇지 않아요.", highlight: "do" },
+            { en: "A: <u>Does</u> Alice wear glasses?", ko: "Alice는 안경을 씁니까?", highlight: "Does" },
+            { en: "B: Yes, she <u>does</u>. / No, she <u>doesn't</u>.", ko: "네, 그래요. / 아니요, 그렇지 않아요.", highlight: "does" }
           ],
           audioKey: "recipe_verb_4"
         }
